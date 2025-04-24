@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetRest</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">PetRest</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#li">Listing</a></li>
+                <li><a href="#ma">Map</a></li>
+                <li><a href="#con">Contact</a></li>
+                <li><a href="/login" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>PetRest will help you to find a better space for your pet.</h1>
+            <p>Looking for best properties? Check this out!</p>
+            <div class="cta-buttons">
+                <button class="primary-btn">Make a tour</button>
+                <button class="secondary-btn">See more</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="listing" id="li">
+        <h2>List Properties</h2>
+        <p>Looking for best properties? check this out!</p>
+        
+        <div class="filter">
+            <div class="filter-item">
+                <select>
+                    <option>Pet</option>
+                    <option>Dog</option>
+                    <option>Cat</option>
+                    <option>Dinasaur</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <select>
+                    <option>Location</option>
+                    <option>Downtown</option>
+                    <option>Suburbs</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <input type="text" placeholder="Search properties...">
+            </div>
+            <div class="filter-item">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="properties-grid" id="properties-grid">
+            <!-- Property Card 1 -->
+            <div class="property-card" data-id="1">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+1'); background-size: cover; background-position: center;">
+                    <span class="price">$150/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Cozy Cottage</h3>
+                    <p>Downtown - 1300 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 3 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="1">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 2 -->
+            <div class="property-card" data-id="2">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+2'); background-size: cover; background-position: center;">
+                    <span class="price">$180/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Luxury Apartment</h3>
+                    <p>Downtown - 1500 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 4 beds</span>
+                        <span><i class="fas fa-bath"></i> 3 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="2">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 3 -->
+            <div class="property-card" data-id="3">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+3'); background-size: cover; background-position: center;">
+                    <span class="price">$120/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Riverside House</h3>
+                    <p>Suburbs - 1100 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 2 beds</span>
+                        <span><i class="fas fa-bath"></i> 1 bath</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="3">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 4 -->
+            <div class="property-card" data-id="4">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+4'); background-size: cover; background-position: center;">
+                    <span class="price">$160/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Modern Condo</h3>
+                    <p>Downtown - 1200 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 3 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="4">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.6</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 5 -->
+            <div class="property-card" data-id="5">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+5'); background-size: cover; background-position: center;">
+                    <span class="price">$190/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Garden Villa</h3>
+                    <p>Suburbs - 1400 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 4 beds</span>
+                        <span><i class="fas fa-bath"></i> 3 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="5">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 6 -->
+            <div class="property-card" data-id="6">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+6'); background-size: cover; background-position: center;">
+                    <span class="price">$170/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Seaside Bungalow</h3>
+                    <p>Waterfront - 1300 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 3 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="6">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden Properties (initially hidden) -->
+            <div class="property-card hidden-property" data-id="7">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+7'); background-size: cover; background-position: center;">
+                    <span class="price">$140/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Mountain Cabin</h3>
+                    <p>Mountains - 1000 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 2 beds</span>
+                        <span><i class="fas fa-bath"></i> 1 bath</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="7">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 8 -->
+            <div class="property-card hidden-property" data-id="8">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+8'); background-size: cover; background-position: center;">
+                    <span class="price">$200/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>City Loft</h3>
+                    <p>Downtown - 1100 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 2 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="8">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 9 -->
+            <div class="property-card hidden-property" data-id="9">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+9'); background-size: cover; background-position: center;">
+                    <span class="price">$130/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Country Home</h3>
+                    <p>Rural - 1600 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 4 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="9">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Card 10 -->
+            <div class="property-card hidden-property" data-id="10">
+                <div class="property-image" style="background-image: url('https://placehold.co/600x400/2196F3/FFF?text=Property+10'); background-size: cover; background-position: center;">
+                    <span class="price">$160/night</span>
+                </div>
+                <div class="property-details">
+                    <h3>Lakeside Cottage</h3>
+                    <p>Waterfront - 1200 sq ft</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 3 beds</span>
+                        <span><i class="fas fa-bath"></i> 2 baths</span>
+                        <span><i class="fas fa-paw"></i> Pet friendly</span>
+                    </div>
+                    <div class="property-buttons">
+                        <button class="details-btn" data-id="10">Details</button>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all">
+            <button class="view-all-btn" id="view-more-btn">View More</button>
+            <button class="view-less-btn" id="view-less-btn">Show Less</button>
+        </div>
+    </section>
+
+    <section class="map-section" id="ma">
+        <h2>Map View</h2>
+        <p>Looking for best properties? check this out!</p>
+        <div id="map"></div>
+    </section>
+
+    <section class="contact" id="con">
+        <div class="contact-image">
+            <img src="https://placehold.co/400x500" alt="Contact Image">
+        </div>
+        <div class="contact-form">
+            <h2>Contacts</h2>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="tel" placeholder="Phone">
+            <textarea placeholder="Message"></textarea>
+            <button class="submit-btn">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>PetRest</h3>
+                <p>Find the perfect space for your pet</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Listings</a></li>
+                    <li><a href="#">Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: info@petrest.com</li>
+                    <li>Phone: (123) 456-7890</li>
+                    <li>Address: 123 Pet Street</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Social</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 PetRest. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon" id="chatbot-icon">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <h3>PetRest Assistant</h3>
+            <button id="close-chatbot"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages">
+            <div class="message bot">
+                Hello! How can I help you find the perfect pet-friendly property today?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type your message..." id="user-input">
+            <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Property Details Modal -->
+    <div class="modal" id="property-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="property-gallery">
+                    <img src="https://placehold.co/600x400" alt="Property Image" id="modal-image">
+                </div>
+                <div class="property-info">
+                    <h2 id="modal-title">Property Name</h2>
+                    <p id="modal-location">Location</p>
+                    <div class="property-price" id="modal-price">$150/night</div>
+                    <div class="property-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span id="modal-rating">4.8</span>
+                    </div>
+                    <div class="property-details-wrapper">
+                        <h3>Details</h3>
+                        <div class="property-features-detailed">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span><strong>Bedrooms:</strong> <span id="modal-beds">3</span></span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span><strong>Bathrooms:</strong> <span id="modal-baths">2</span></span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span><strong>Size:</strong> <span id="modal-size">1300 sq ft</span></span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-paw"></i>
+                                <span><strong>Pet Policy:</strong> <span id="modal-pet-policy">Pets allowed</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-description">
+                        <h3>Description</h3>
+                        <p id="modal-description">This is a lovely property perfect for you and your furry friend. Enjoy the spacious backyard and nearby dog park. The neighborhood is quiet and pet-friendly.</p>
+                    </div>
+                    <div class="modal-buttons">
+                        <button class="primary-btn book-now-btn">Book Now</button>
+                        <button class="secondary-btn contact-owner-btn">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js"></script>
+    <script src="main.js"></script>
+    <script src="map.js"></script>
+    <script src="modal.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
